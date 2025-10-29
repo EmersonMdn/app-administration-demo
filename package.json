@@ -1,5 +1,5 @@
 {
-	"name": "appadministration",
+	"name": "administration",
 	"version": "1.0.0",
 	"scripts": {
 		"build": "webpack --mode production --config config/webpack.prod.js",

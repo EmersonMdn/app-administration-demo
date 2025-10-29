@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import App from "./App.jsx";
 import { createMemoryHistory, createBrowserHistory } from "history";
 import startup from "./utils/startup.json";
 import { createRoot } from "react-dom/client";
@@ -38,7 +38,7 @@ const mount = (
 
 if (process.env.NODE_ENV === "development") {
 	// localStorage.setItem("auth_tenant", "sysone");
-	const devRoot = document.getElementById("_app-administration-dev-root");
+	const devRoot = document.getElementById("_appadministration-dev-root");
 	if (devRoot) {
 		mount(devRoot, { defaultHistory: createBrowserHistory(), menu: startup });
 	}

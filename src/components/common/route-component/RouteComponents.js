@@ -1,5 +1,6 @@
 import React from "react";
-import { useTranslation } from "../../../contexts/translationContext";
+import { useTranslation } from "../../../contexts/translationContext"; 
+import Home from '../../pages/home/Home'
 
 export default function RouteComponent({ m, parents }) {
   const { t } = useTranslation();
@@ -8,8 +9,8 @@ export default function RouteComponent({ m, parents }) {
   // basados en el tipo de menú o ruta
   const renderComponent = () => {
     switch (m.code) {
-      case "ADMINISTRATION_ADMIN":
-        return <div>Administration Admin Component</div>;
+      case "LINK_ONE_ADMINISTRATION_MODULE":
+        return <Home />
       default:
         return <div>Default Component for {m.code}</div>;
     }

@@ -7,7 +7,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const variablesJSON = JSON.parse(process.env.LINKONE_WEB_CONF);
-const mfe = variablesJSON.app.mfes.find((mfe) => mfe.name === "appadministration");
+const mfe = variablesJSON.app.mfes.find((mfe) => mfe.name === "administration");
 
 const devConfig = {
 	mode: "production",
@@ -49,11 +49,11 @@ const devConfig = {
 
 	plugins: [
 		new ModuleFederationPlugin({
-			name: "appadministration",
+			name: "administration",
 			filename: "remoteEntry.js",
 			remotes: {},
 			exposes: {
-				"./AppAdministrationApp": "./src/bootstrap",
+				"./AdministrationApp": "./src/bootstrap",
 			},
 			shared: {
 				...deps,
