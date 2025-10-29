@@ -1,0 +1,16 @@
+{
+	"code": "LINK_ONE_ADMINISTRATION_MODULE",
+	"labelCode": "administration-module",
+	"path": null,
+	"menus": [
+		{
+			"code": "ADMINISTRATION_ADMIN",
+			"labelCode": "administration-admin-title",
+			"path": null,
+			"menus": [],
+			"actions": null
+		}
+	],
+	"services": null,
+	"labels": []
+}
