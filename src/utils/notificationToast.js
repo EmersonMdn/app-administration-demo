@@ -1,26 +1,37 @@
+import React from "react";
 import { notification } from "antd";
 
-export const showNotification = (type, message, description) => {
-  notification[type]({
+const TYPE = {
+  SUCCESS: "success",
+  ERROR: "error",
+  INFO: "info",
+  WARNING: "warning",
+};
+
+const openNotificationWithIcon = (type, message, description, subErrors) => {
+  return notification[type]({
     message,
-    description,
-    placement: "topRight",
-    duration: 4.5,
+    style: {
+      minHeight:
+        description || (subErrors && subErrors.length > 0) ? "0" : "70px",
+    },
+    description: (
+      <>
+        {description ? (
+          <>
+            {description}
+            <br />
+          </>
+        ) : null}
+
+        {subErrors?.map((e, idx) => (
+          <React.Fragment key={`sub_error_${idx}`}>
+            <div style={{ fontSize: "16px" }}>- {e}</div>
+            <br />
+          </React.Fragment>
+        ))}
+      </>
+    ),
   });
 };
-
-export const showSuccess = (message, description) => {
-  showNotification("success", message, description);
-};
-
-export const showError = (message, description) => {
-  showNotification("error", message, description);
-};
-
-export const showWarning = (message, description) => {
-  showNotification("warning", message, description);
-};
-
-export const showInfo = (message, description) => {
-  showNotification("info", message, description);
-};
+export { openNotificationWithIcon, TYPE };

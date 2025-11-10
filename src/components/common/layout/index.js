@@ -4,13 +4,13 @@ import {
 	Inner,
 	Header,
 	Title,
+	Subtitle,
 	Breadcrumb,
 	BreadcrumbItem,
 	BreadcrumbSeparator,
 	Aside,
-	Body,
+	Body
 } from "./styles";
-import { useDevice } from "../../../contexts/deviceContext";
 
 const Layout = ({ children, ...restProps }) => (
 	<Inner {...restProps}>{children}</Inner>
@@ -22,6 +22,10 @@ Layout.Header = ({ children, ...restProps }) => {
 	return <Header {...restProps}>{children}</Header>;
 };
 
+Layout.Body = ({ children, ...restProps }) => {
+	return <Body {...restProps}>{children}</Body>;
+}
+
 Layout.Main = ({ children, ...restProps }) => {
 	return <Main {...restProps}>{children}</Main>;
 };
@@ -29,6 +33,16 @@ Layout.Main = ({ children, ...restProps }) => {
 Layout.Aside = ({ children, ...restProps }) => {
 	return <Aside {...restProps}>{children}</Aside>;
 };
+
+Layout.Title = ({ children, ...restProps }) => {
+	return <Title {...restProps}>{children}</Title>;
+};
+
+Layout.Subtitle = ({ children, ...restProps }) => {
+	return <Subtitle {...restProps}>
+		{children}
+	</Subtitle>;
+}
 
 Layout.Breadcrumb = ({ children, ...restProps }) => {
 	return <Breadcrumb {...restProps}>{children}</Breadcrumb>;
@@ -40,17 +54,4 @@ Layout.BreadcrumbItem = ({ children, ...restProps }) => {
 
 Layout.BreadcrumbSeparator = ({ children, ...restProps }) => {
 	return <BreadcrumbSeparator {...restProps}>/</BreadcrumbSeparator>;
-};
-
-Layout.Title = ({ children, ...restProps }) => {
-	const { isTabletOrMobile } = useDevice();
-	return (
-		<Title mobile={isTabletOrMobile} {...restProps}>
-			{children}
-		</Title>
-	);
-};
-
-Layout.Body = ({ children, ...restProps }) => {
-	return <Body {...restProps}>{children}</Body>;
 };

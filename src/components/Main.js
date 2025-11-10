@@ -15,7 +15,12 @@ export default function Main({ history }) {
 
 	return (
 		<Router history={history}>
-			<Switch>{Routes(routes)}</Switch>
+			<Switch>
+				{Routes(routes)}
+				<Route exact path="/administration/data/:uuid">
+					<h1>lorem</h1>
+				</Route>
+			</Switch>
 		</Router>
 	);
 }
