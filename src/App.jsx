@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./index.css";
 import "antd/dist/antd.css";
 import { TranslationProvider } from "./contexts/translationContext";
@@ -16,7 +16,6 @@ export default ({ history, menu }) => {
 	const userid = localStorage.getItem("user_id");
 	const xApiKey = localStorage.getItem("x-api-key");
 	const styles = localStorage.getItem("styles");
-	updateColors(styles);
 
 	axiosInstance.interceptors.request.use(
 		(config) => {
@@ -35,6 +34,11 @@ export default ({ history, menu }) => {
 			return Promise.reject(error);
 		}
 	);
+
+	updateColors(styles);
+
+	useEffect(() => { console.log("MENUS DESDE ADMIN", menu) })
+
 
 	return (
 		<TranslationProvider initialData={menu.labels}>

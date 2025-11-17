@@ -3,10 +3,8 @@ import { Select, Spin } from "antd";
 import Layout from "../../common/layout";
 import { useTranslation } from "../../../contexts/translationContext";
 import { openNotificationWithIcon, TYPE } from "../../../utils/notificationToast";
-import { superset_get_dashboards } from "../../api/general";
 import PowerBIReport from "../../common/powerbi/PowerBIEmbed";
 
-const { Option } = Select;
 
 const Home = () => {
   const { t } = useTranslation();
